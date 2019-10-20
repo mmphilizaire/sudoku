@@ -1,5 +1,3 @@
-import time
-total = time.clock()
 
 groups=[[0,0,0] for x in range(81)]
 
@@ -71,7 +69,6 @@ puzzles = open("sud.txt","r")
 count = 1
 for line in puzzles:
     if count < 129:
-        start = time.clock()
         print("puzzle %s" % count)
         sud = line
         indeces = [[x,poss1(sud,x)] for x in range(len(sud)) if sud[x]=="."]
@@ -82,7 +79,5 @@ for line in puzzles:
             display(sol)
             sum1 = sum([int(x) for x in sol.rstrip("\n")])
             print(sum1)
-        print("time taken: %s seconds" % (time.clock()-start))
         print("")
     count+=1
-print("TOTAL TIME: %s seconds" % (time.clock()-total))
